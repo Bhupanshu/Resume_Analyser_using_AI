@@ -3,6 +3,8 @@ const blacklistmodel= require("../models/blacklist.model")
 const jwt=require("jsonwebtoken");
 const bcrypt = require("bcryptjs"); 
 
+const isProd = process.env.NODE_ENV === "production";
+
 
 
 /**
