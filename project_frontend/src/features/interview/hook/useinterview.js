@@ -4,6 +4,7 @@ import {
   GetInterviewReport,
   GetInterviewReportandDisplay,
   GetAllReportOfUser,
+  DeleteInterviewReport
 } from "../services/interview.api";
 
 export const useInterview = () => {
@@ -65,5 +66,17 @@ export const useInterview = () => {
         }
         
     }
-    return {loading,report,reports,generateReport,getReportbyID,getReports}
+
+    async function deleteReport(interviewid) {
+  try {
+    await DeleteInterviewReport(interviewid);
+    setReports((prev) => (prev || []).filter((r) => r._id !== interviewid));
+    return true;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+}
+
+return { loading, report, reports, generateReport, getReportbyID, getReports, deleteReport }
 }

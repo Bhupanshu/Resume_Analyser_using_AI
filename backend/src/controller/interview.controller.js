@@ -83,7 +83,23 @@ async function Getallinterview (req,res){
     })
 }
 
+async function DeleteInterviewReport(req, res) {
+  try {
+    const { interviewid } = req.params;
+    const deleted = await interviewModel.findOneAndDelete({ _id: interviewid, user: req.user.id });
+
+    if (!deleted) {
+      return res.status(404).json({ message: "Interview Report not found" });
+    }
+
+    return res.status(200).json({ message: "Interview report deleted" });
+  } catch (err) {
+    console.error("Delete report failed:", err);
+    return res.status(500).json({ message: "Could not delete the report" });
+  }
+}
+
+module.exports = { GenInterviewReportAI, GetinterviewReporttoDisplay, Getallinterview, DeleteInterviewReport };
 
 
 
-module.exports = { GenInterviewReportAI,GetinterviewReporttoDisplay,Getallinterview };                 

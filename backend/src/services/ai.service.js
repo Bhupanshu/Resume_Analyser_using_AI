@@ -54,6 +54,14 @@ const interviewreportJSONSchema = {
             type: "number",
             description: "A match score between 0 and 100 indicating candidate fit for the job description"
         },
+        title:{
+            type:"string",
+            description:"Add job title for whicch the user is applying"
+        },
+        summary:{
+            type:"string",
+            description:"Add a 2 line summary for that particular job role"
+        },
         skillGaps: {
             type: "array",
             items: {
@@ -118,7 +126,7 @@ const interviewreportJSONSchema = {
             }
         }
     },
-    required: ["matchscore", "technicalQuestion", "behaviorQuestion", "skillGaps", "preparationPlan"]
+    required: ["matchscore", "technicalQuestion", "behaviorQuestion", "skillGaps", "preparationPlan","title","summary"]
 };
 
 async function InterviewReport({ resume, jobdescription, selfdescription }) {

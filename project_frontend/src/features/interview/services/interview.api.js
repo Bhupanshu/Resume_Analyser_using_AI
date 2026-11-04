@@ -30,3 +30,8 @@ export async function GetAllReportOfUser() {
   const response = await api.get("/api/interview/");
   return response.data;
 }
+
+export async function DeleteInterviewReport(interviewid) {
+  const response = await api.delete(`/api/interview/report/${interviewid}`);
+  return response.data;
+}

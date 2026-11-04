@@ -19,7 +19,7 @@ interviewRouter.post("/Interviewai",middleware.authUser,upload.single("resume"),
  * @description This is use to display the report using inetrviewid
  * @access private
  */
-interviewRouter.get("/:interviewid",middleware.authUser,interviewController.GetinterviewReporttoDisplay)
+interviewRouter.get("/report/:interviewid",middleware.authUser,interviewController.GetinterviewReporttoDisplay)
 
 /**
  * @route Get api/auth/interview
@@ -27,5 +27,11 @@ interviewRouter.get("/:interviewid",middleware.authUser,interviewController.Geti
  * @access private 
  */
 interviewRouter.get("/",middleware.authUser,interviewController.Getallinterview)
+
+/**
+ * @route get api/auth/delete
+ * @description Delete users report
+ * **/
+interviewRouter.delete("/report/:interviewid", middleware.authUser, interviewController.DeleteInterviewReport)
  
 module.exports=interviewRouter;     
