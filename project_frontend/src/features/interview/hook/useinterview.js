@@ -72,7 +72,7 @@ export const useInterview = () => {
     await DeleteInterviewReport(interviewid);
     setReports((prev) => (prev || []).filter((r) => r._id !== interviewid));
     return true;
-  } catch (err) {
+  } catch (err) {        
     console.log(err);
     return false;
   }

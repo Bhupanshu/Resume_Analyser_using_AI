@@ -46,7 +46,8 @@ async function registeruser(req,res){
 
         res.cookie("Token",token,{
             httpOnly:true,
-            sameSite:"strict",
+            secure: isProd,                     // HTTPS only when deployed
+            sameSite: isProd ? "none" : "lax",
             maxAge: 24*60*60*1000  // 1 day in ms
         });
         res.status(201).json({
@@ -96,7 +97,8 @@ async function loginuser(req,res){
 
         res.cookie("Token",token,{
             httpOnly:true,
-            sameSite:"strict",
+            secure: isProd,                  // HTTPS only when deployed
+            sameSite: isProd ? "none" : "lax",
             maxAge: 24*60*60*1000  // 1 day in ms 
         });
         res.status(200).json({
