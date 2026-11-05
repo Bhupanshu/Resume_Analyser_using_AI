@@ -1,8 +1,9 @@
-import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import { useInterview } from '../hook/useinterview'
 import { useNavigate, Link } from 'react-router';
-import { useAuth } from '../../auth/hook/useAuth';
+import { useAuth } from '../../auth/hook/useAuth';  
+import Logo from '../../auth/component/Logo' ; 
+
 
 const scoreStyle = (score) =>
   score >= 75
@@ -56,6 +57,8 @@ const Home = () => {
 
   return (
     <main className='w-full min-h-screen flex flex-col items-center gap-8 bg-gray-200 px-4 py-10'>
+
+      <Logo size='lg'/>
 
       <div className='w-full max-w-3xl flex justify-end'>
       <div className='w-full max-w-3xl flex justify-end'>

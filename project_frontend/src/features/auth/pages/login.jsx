@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import {useAuth} from "../hook/useAuth" 
+import Logo  from "../component/Logo"
 
 const Login = () => {
     const { handlelogin, loading } = useAuth();
@@ -35,9 +36,12 @@ const Login = () => {
     return (
         <main className="min-h-screen flex justify-center items-center ">
 
+
             {/* Card */}
             <div className="bg-white rounded-2xl shadow-lg p-12 w-full max-w-md mx-4">
-                <h1 className="text-2xl font-bold text-center text-gray-800 mb-8">Login</h1>
+                <div className='flex justify-center mb-6'>
+                <Logo size='lg' />
+            </div>  
 
                 <form onSubmit={handlesubmit} className="flex flex-col gap-6 pl-4">
                     <div className="flex flex-col gap-1">
